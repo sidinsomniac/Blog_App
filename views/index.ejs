@@ -1,0 +1,21 @@
+<% include partials/header %>
+    <main class="container">
+        <h1 id="blog-header"><i class="far fa-newspaper"></i></i> DailyFresh</h1>
+        <% blogs.forEach(function(blog){ %>
+            <div class="segment height-adjust">
+                <h2 class="blog-head">
+                    <%= blog.title %>
+                </h2>
+                <p class="blog-date">
+                    <%= blog.created.toDateString() %>
+                </p>
+                <img src="<%= blog.image %>" alt="BlogImage" class="blog-images">
+                <p class="blog-desc">
+                    <%= blog.body.substring(0,100) %>...
+                </p>
+                <a href="/blogs/<%= blog._id %>">Read More</a>
+            </div>
+            <hr>
+        <% }); %>
+    </main>
+<% include partials/footer %>

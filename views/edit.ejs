@@ -1,0 +1,15 @@
+<% include partials/header %>
+<div class="segment form-segment">
+    <h2>Edit Blog</h2>
+	<form action="/blogs/<%= blog._id %>?_method=PUT" method="POST">
+        <label for="blog[title]">Title:</label>
+        <input type="text" name="blog[title]" class="form-field" value="<%= blog.title %>">
+        <label for="blog[image]">Image URL:</label>
+        <input type="text" name="blog[image]" class="form-field" value="<%= blog.image %>">
+        <label for="blog[body]">Description:</label>
+        <textarea name="blog[body]" class="form-field" cols="60" rows="10"><%= blog.body %></textarea>
+        <input type="submit" id="submit-btn" class="btn" value='Update'>
+    </form>
+    <a href="/blogs/<%= blog._id %>">Back</a>
+</div>
+<% include partials/footer %>

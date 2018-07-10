@@ -1,0 +1,27 @@
+<% include partials/header %>
+<div class="segment">
+    <h2 class="blog-head">
+        <%= info.title %>
+    </h2>
+    <p class="blog-date">
+        <%= info.created.toDateString() %>
+    </p>
+    <img src="<%= info.image %>" alt="BlogImage" class="blog-image">
+    <form class="inline-form">
+        <button class="btn" id="edit-btn">
+                <a href="/blogs/<%= info._id %>/edit">
+                    Edit
+                </a>
+        </button>  
+    </form>
+    <form action="/blogs/<%= info._id %>?_method=DELETE" method="POST" class="inline-form">
+        <button class="btn" id="delete-btn">
+            Delete
+        </button>  
+    </form>
+    <p id="blog-desc">
+        <%- info.body %>
+    </p>
+    <a href="/blogs">Back</a>
+</div>
+<% include partials/footer %>
